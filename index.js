@@ -13,9 +13,9 @@ app.engine('hbs', exphbs(
     }
 ));
 
-hbs.registerHelper("getTime", (options) => {
+hbs.registerHelper("getTime", () => {
 
-    var myDate = new Date();
+    var myDate = new Date("10.02.2021");
     var hour = myDate.getHours();
     var minute = myDate.getMinutes();
     var second = myDate.getSeconds();
@@ -25,7 +25,7 @@ hbs.registerHelper("getTime", (options) => {
     if (second < 10) {
         second = "0" + second;
     }
-    return hbs.SafeString("Текущее время: " + this.hour + ":" + minute + ":" + second);
+    return hbs.SafeString("Текущее время: " + hour + ":" + minute + ":" + second);
 });
 
 app.set('view engine', 'hbs');
